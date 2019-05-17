@@ -57,12 +57,12 @@ int main() {
     to_string(lst);
     printf("\n Removing at index 1...; removing by value 4...\n");
     remove_at(lst, 1);
-    remove_by_value(lst, 4);
+    remove_by_value(lst, 4,0.0000001);
     to_string(lst);
 
     Node *first = get_by_index(lst, 0);
     printf("value of 0th element: %f\n", first->value);
-    first = get_by_value(lst, 3);
+    first = get_by_value(lst, 3,0.0000001);
     printf("Node value got when searching for node with value 3: %f\n", first->value);
     sort_list(lst, greater);
     to_string(lst);

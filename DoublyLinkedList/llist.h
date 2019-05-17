@@ -37,11 +37,11 @@ int pop_back(List *list);
 
 int remove_at(List *list, size_t index);
 
-int remove_by_value(List *list, double value);
+int remove_by_value(List *list, double value, double precision);
 
 Node *get_by_index(List *list, size_t index);
 
-Node *get_by_value(List *list, double value);
+Node *get_by_value(List *list, double value, double precision);
 
 void delete_list(List *list);
 

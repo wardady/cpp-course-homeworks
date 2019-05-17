@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include "llist.h"
 
 void to_string(List *list) {
@@ -132,13 +133,13 @@ int remove_at(List *list, size_t index) {
     return 0;
 }
 
-int remove_by_value(List *list, double value) {
+int remove_by_value(List *list, double value, double precision) {
     if (!list || !list->head) {
         return 1;
     }
     Node *current = list->head;
     do {
-        if (current->value == value) {
+        if (fabs(current->value - value) <= precision) {
             if (current == list->head) {
                 list->head = current->next;
             } else {
@@ -157,13 +158,13 @@ int remove_by_value(List *list, double value) {
     return 2;
 }
 
-Node *get_by_value(List *list, double value) {
+Node *get_by_value(List *list, double value, double precision) {
     if (!list || !list->head) {
         return NULL;
     }
     Node *current = list->head;
     while (current) {
-        if (current->value == value) {
+        if (fabs(current->value - value) <= precision) {
             return current;
         }
         current = current->next;
